@@ -5,6 +5,7 @@ import {auth, signIn, signOut} from "@/auth";
 
 const Navbar = async () => {
     const session = await auth()
+    console.log('session', session)
 
     return (
         <header className='px-5 py-3 bg-white shadow-sm font-work-sans'>
@@ -20,13 +21,13 @@ const Navbar = async () => {
                                 <span className="max-sm:hidden">Create</span>
                             </Link>
 
-                           <form action={async () => {
-                               'use server'
+                            <form action={async () => {
+                                'use server'
 
-                               await signOut({redirectTo: '/'})
-                           }}>
+                                await signOut({redirectTo: '/'})
+                            }}>
 
-                           </form>
+                            </form>
 
                             <Link href={`/user/${session?.user?.id}`}>
                                 <span>{session?.user?.name}</span>
@@ -35,12 +36,11 @@ const Navbar = async () => {
                     ) : (
                         <form
                             action={async () => {
-                                "use server";
-
-                                await signIn("github");
+                                "use server"
+                                await signIn("github")
                             }}
                         >
-                            <button type="submit">Login</button>
+                            <button type="submit">Signin with GitHub</button>
                         </form>
                     )}
                 </div>
