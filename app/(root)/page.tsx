@@ -1,7 +1,8 @@
-import {Button} from "@/components/ui/button";
 import SearchForm from "@/app/components/SearchForm";
 
-export default function Home() {
+export default async function Home({searchParams}: { searchParams: Promise<{ query?: string }> }) {
+    const query = (await searchParams).query;
+
     return (
         <>
             <section className='pink_container pattern'>
@@ -10,9 +11,10 @@ export default function Home() {
                     Connect with entrepreneurs
                 </h1>
 
-                <p className='!max-w-3xl sub-heading'>Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions</p>
+                <p className='!max-w-3xl sub-heading'>Submit Ideas, Vote on Pitches, and Get Noticed in Virtual
+                    Competitions</p>
 
-                <SearchForm />
+                <SearchForm query={query}/>
             </section>
         </>
     );
