@@ -1,13 +1,18 @@
 import {Button} from "@/components/ui/button";
+import SearchForm from "@/app/components/SearchForm";
 
 export default function Home() {
     return (
         <>
             <section className='pink_container pattern'>
                 <h1 className="heading">
-                    Hello world!
+                    Pitch your startup,<br/>
+                    Connect with entrepreneurs
                 </h1>
-                <Button className='mt-5' variant='outline'>Click me</Button>
+
+                <p className='!max-w-3xl sub-heading'>Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions</p>
+
+                <SearchForm />
             </section>
         </>
     );
